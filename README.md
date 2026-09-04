@@ -323,7 +323,7 @@ RECAPTCHA_SECRET_KEY=
 **Prerequisites:** [Node.js](https://nodejs.org/en) and npm.
 
 ```bash
-git clone <repository-url>
+git clone [<repository-url>](https://github.com/MEDICONSORTIUM/mca-website.git)
 cd mca-website
 npm install
 ```
