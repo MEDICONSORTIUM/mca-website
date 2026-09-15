@@ -10,6 +10,7 @@ export default function HomePage() {
       <MetricCounter />
       <AboutSnippet />
       <PartnersStrip />
+      <>ContactUs</>
     </>
   );
 }
