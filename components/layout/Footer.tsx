@@ -84,7 +84,7 @@ export default function Footer() {
       {/* Copyright and privacy */}
       <div className="border-t border-white/10 bg-black/10 px-4 py-4 text-center text-xs text-mca-steel">
         {/* HOME-FTR-03 */}
-        <p align="left">
+        <p className="left">
           © {year} Medical Consortium of Africa (PTY) LTD. All rights
           reserved.
         </p>
