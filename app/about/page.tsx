@@ -19,10 +19,6 @@ export default function AboutPage() {
         <p className="leading-7 text-[#6B7280]">We are dedicated to leveraging data and technology to address health challenges, foster collaboration among stakeholders, and drive positive change in healthcare across the continent.</p>
 
       </div>
-      
-      
-       
-
 
 
       {/*Vision*/}
