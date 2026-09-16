@@ -8,7 +8,6 @@ const links = [
   { href: "/about", label: "About" },
   { href: "/partners", label: "Partners" },
   { href: "/contact", label: "Contact" },
-  { href: "/access the platform", label: "Access The Platform" },
 ];
 
 export default function NavBar() {
@@ -20,7 +19,7 @@ export default function NavBar() {
         <Link href="/" className="text-lg font-bold text-white">
           MCA
         </Link>
-        <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+        <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
           {links.map((link) => {
             const active = pathname === link.href;
             return (
@@ -39,6 +38,16 @@ export default function NavBar() {
               </li>
             );
           })}
+          <li>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-md bg-mca-orange px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95"
+            >
+              Access the Platform
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
