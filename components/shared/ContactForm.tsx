@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 // Subject dropdown options — README §Contact Page Contact Form fields
 const CONTACT_SUBJECTS = [
@@ -67,6 +68,7 @@ export default function ContactForm() {
   const [form, setForm] = useState<FormState>(EMPTY_FORM);
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<Status>("idle");
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   function update<K extends keyof FormState>(field: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -82,13 +84,24 @@ export default function ContactForm() {
     setStatus("submitting");
 
     try {
+      
       // POST /api/contact → Resend → MCA email (see issue #9 for the
       // API route side of this — that route sends the email; this
       // component only needs it to return ok/not-ok)
+      if (!executeRecaptcha) {
+        console.log("reCAPTCHA is not ready.");
+        setStatus("error");
+        return;
+      }
+      const recaptchaToken = await executeRecaptcha("contact_form");
+      
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          recaptchaToken,
+        }),
       });
 
       if (!res.ok) throw new Error("Submission failed");
