@@ -27,13 +27,7 @@ export default function AboutSnippet() {
               health analytics to help institutions understand and respond to
               disease patterns.
             </p>
-
-            <Link
-              href="/about"
-              className="mt-8 inline-block font-semibold text-mca-orange hover:underline"
-            >
-              Read More
-            </Link>
+            
           </div>
 
           {/* Satellite Image */}

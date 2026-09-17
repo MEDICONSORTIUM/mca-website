@@ -37,12 +37,12 @@ export default function HeroSection() {
             Access the EOHA Platform
           </a>
 
-          <button
-            type="button"
+          <a
+            href="/about"
             className="inline-flex items-center justify-center border border-white/60 px-7 py-3.5 text-base font-semibold text-white transition hover:bg-white/10"
           >
             Learn More
-          </button>
+          </a>
         </div>
       </div>
     </section>
