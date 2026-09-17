@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -16,8 +17,17 @@ export default function NavBar() {
   return (
     <header className="sticky top-0 z-50 border-b border-mca-steel/20 bg-mca-charcoal">
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4 sm:px-8">
-        <Link href="/" className="text-lg font-bold text-white">
-          MCA
+        <Link href="/" className="flex items-center gap-3">
+          <Image
+            src="/mca-logo.jpg"
+            alt="Medical Consortium of Africa logo"
+            width={36}
+            height={36}
+            className="rounded-md"
+          />
+          <span className="text-lg font-bold text-white">
+            Medical Consortium of Africa
+          </span>
         </Link>
         <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
           {links.map((link) => {
