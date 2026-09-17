@@ -31,7 +31,7 @@ export default function PartnersPage() {
               key={i}
               src={logo.src}
               alt={logo.name}
-              className="logo-img h-20 w-auto object-contain grayscale"
+              className="h-20 w-auto object-contain"
             />
           ))}
         </div>
@@ -46,9 +46,6 @@ export default function PartnersPage() {
         }
         .scroll-row:hover {
           animation-play-state: paused;
-        }
-        .logo-img:hover {
-          filter: grayscale(0);
         }
       `}</style>
     </main>
