@@ -60,10 +60,14 @@ export default function Footer() {
           <p className="mb-2 font-semibold text-white">
             Contact
           </p>
-
-          <p className="text-mca-steel">
-            [PLACEHOLDER: office address]
-          </p>
+<p className="text-mca-steel">
+  Medical Consortium of Africa<br />
+  TUKSNOVATION<br />
+  Room 14-4, Humanities Building<br />
+  University of Pretoria<br />
+  Hatfield, 0028<br />
+  Pretoria, South Africa
+</p>
 
           <p className="mt-1 text-mca-steel">
             Info@MedicalConsortiumOfAfrica.co.za
