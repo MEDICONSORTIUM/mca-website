@@ -37,9 +37,9 @@ export default function AboutPage() {
 
 
       {/*Focus Areas*/}
-      <section className="bg-blackn-50 px-6 py-16">
+      <section className="bg-gray-50 px-6 py-16">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-10 text-center text-3xl font-bold">Our Focus Areas</h2>
+          <h2 className="mb-10 text-black text-center text-3xl font-bold">Our Focus Areas</h2>
           <div className= "grid gap-6 md:grid-cols-3">
 
             {/*Disease Surveillance*/}
