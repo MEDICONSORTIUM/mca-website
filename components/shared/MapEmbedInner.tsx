@@ -2,7 +2,7 @@
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
-import "leaflet/dist/leaflet.css";
+
 
 // Spec CON-MAP-03 — custom pin in MCA brand orange (#C85A1A), replacing
 // Leaflet's default blue marker. Built as an inline SVG divIcon so no
