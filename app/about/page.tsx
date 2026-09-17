@@ -25,7 +25,7 @@ export default function AboutPage() {
 <div className="boarder-1-4 boarder-[#C85A1A] bg-[#F5F5F5] p-8">
   <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#C85A1A]">Our Vision</p>
   <h2 className="mb-4 text-3xl font-bold text-[#2C2C2C]">A continent where data closes the health gap.</h2>
-  <p className="leading-7 text-[#6B7280]">To become Africa's leading Earth observation and health analytics consortium driving resilient, data-driven healthcare systems and environmental intelligence across the continent</p>
+  <p className="leading-7 text-[#6B7280]">To become Africa&apos;s leading Earth observation and health analytics consortium driving resilient, data-driven healthcare systems and environmental intelligence across the continent</p>
 
 
 </div>
