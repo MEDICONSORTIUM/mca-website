@@ -12,7 +12,7 @@ const repeatedLogos = [...logos, ...logos, ...logos, ...logos];
 
 export default function PartnersPage() {
   return (
-    <>
+    <main className="bg-white text-black">
       <PageHeroBanner title="Our Partners" />
 
       <section className="flex flex-col gap-8 p-8 md:flex-row">
@@ -25,16 +25,16 @@ export default function PartnersPage() {
       </section>
 
       <section className="overflow-hidden py-12">
-       <div className="scroll-row flex w-max items-center gap-16">
-  {repeatedLogos.map((logo, i) => (
-    <img
-      key={i}
-      src={logo.src}
-      alt={logo.name}
-      className="logo-img h-20 w-auto object-contain grayscale"
-    />
-  ))}
-</div>
+        <div className="scroll-row flex w-max items-center gap-16">
+          {repeatedLogos.map((logo, i) => (
+            <img
+              key={i}
+              src={logo.src}
+              alt={logo.name}
+              className="logo-img h-20 w-auto object-contain grayscale"
+            />
+          ))}
+        </div>
       </section>
 
       <style>{`
@@ -51,6 +51,6 @@ export default function PartnersPage() {
           filter: grayscale(0);
         }
       `}</style>
-    </>
+    </main>
   );
 }
