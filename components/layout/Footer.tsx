@@ -66,10 +66,13 @@ export default function Footer() {
           </p>
 
           <p className="text-mca-steel">
-            Humanities Building, Office 14-4, University of Pretoria, 5 Lynnwood Rd, Pretoria, 0040
+            Medical Consortium of Africa<br />
+            TUKSNOVATION<br />
+            Room 14-4, Humanities Building<br />
+            University of Pretoria<br />
+            Hatfield, 0028<br />
+            Pretoria, South Africa
           </p>
-
-
           {/* HOME-FTR-02 — LinkedIn placeholder */}
           <div className="mt-4 flex gap-3">
             <span
