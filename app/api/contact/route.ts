@@ -1,3 +1,5 @@
+import { Resend } from "resend";
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -58,13 +60,48 @@ export async function POST(request: Request) {
     }
 
     // 5. Only process the contact form after successful verification
-    console.log("Contact form submission:", {
-      fullName,
-      email,
-      organisation,
-      subject,
-      message,
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const senderAddress = process.env.CONTACT_SENDER_ADDRESS;
+    // OI-002 (FSD §7.1): destination inbox pending MCA confirmation —
+    // falls back to the sender address so the flow is testable meanwhile.
+    const destinationAddress =
+      process.env.CONTACT_EMAIL_ADDRESS || senderAddress;
+
+    if (!resendApiKey || !senderAddress || !destinationAddress) {
+      console.error(
+        "Resend is not configured: missing RESEND_API_KEY, CONTACT_SENDER_ADDRESS, or CONTACT_EMAIL_ADDRESS."
+      );
+      return Response.json(
+        { error: "Email delivery is not configured" },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(resendApiKey);
+
+    const { error: sendError } = await resend.emails.send({
+      from: `MCA Website <${senderAddress}>`,
+      to: [destinationAddress],
+      replyTo: email,
+      subject: `New Contact Form Submission: ${subject}`,
+      text: `New contact form submission
+
+Full Name: ${fullName}
+Email: ${email}
+Organisation: ${organisation || "—"}
+Subject: ${subject}
+
+Message:
+${message}`,
     });
+
+    if (sendError) {
+      console.error("Resend error:", sendError);
+      return Response.json(
+        { error: "Failed to send email" },
+        { status: 500 }
+      );
+    }
 
     return Response.json(
       { message: "Contact form submission received" },
