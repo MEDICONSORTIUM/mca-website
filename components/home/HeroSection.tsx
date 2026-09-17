@@ -24,22 +24,22 @@ export default function HeroSection() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-lg text-white/80 sm:text-xl">
-          Helping the world through Medical Innovation
+          Combining Earth Observation data with health analytics to understand disease patterns across the continent.
         </p>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
           <a
-            href="#"
+            href="https://eoha.co.za/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-md bg-mca-orange px-7 py-3.5 text-base font-semibold text-white transition hover:brightness-95"
+            className="inline-flex items-center justify-center bg-mca-orange px-7 py-3.5 text-base font-semibold text-white transition hover:brightness-95"
           >
             Access the EOHA Platform
           </a>
 
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md border border-white/60 px-7 py-3.5 text-base font-semibold text-white transition hover:bg-white/10"
+            className="inline-flex items-center justify-center border border-white/60 px-7 py-3.5 text-base font-semibold text-white transition hover:bg-white/10"
           >
             Learn More
           </button>

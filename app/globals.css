@@ -18,6 +18,7 @@
   --color-mca-charcoal: #2c2c2c;
   --color-mca-steel: #6b7280;
   --color-mca-offwhite: #f5f5f5;
+  --color-mca-navy: #0e1b2e;
 }
 
 @media (prefers-color-scheme: dark) {
