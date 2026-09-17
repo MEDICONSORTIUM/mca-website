@@ -61,13 +61,14 @@ export default function Footer() {
             Contact
           </p>
 
-          <p className="text-mca-steel">
-            [PLACEHOLDER: office address]
-          </p>
-
           <p className="mt-1 text-mca-steel">
             Info@MedicalConsortiumOfAfrica.co.za
           </p>
+
+          <p className="text-mca-steel">
+            Humanities Building, Office 14-4, University of Pretoria, 5 Lynnwood Rd, Pretoria, 0040
+          </p>
+
 
           {/* HOME-FTR-02 — LinkedIn placeholder */}
           <div className="mt-4 flex gap-3">
