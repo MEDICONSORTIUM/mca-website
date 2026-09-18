@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-mca-charcoal text-white">
       {/* HOME-FTR-01 — three-column footer */}
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 sm:px-8 md:grid-cols-3">
 
         {/* Company */}
         <div>
@@ -86,9 +86,9 @@ export default function Footer() {
       </div>
 
       {/* Copyright and privacy */}
-      <div className="border-t border-white/10 bg-black/10 px-4 py-4 text-center text-xs text-mca-steel">
+      <div className="border-t border-white/10 bg-black/10 px-6 py-4 text-center text-xs text-mca-steel sm:px-8">
         {/* HOME-FTR-03 */}
-        <p className="left">
+        <p>
           © {year} Medical Consortium of Africa (PTY) LTD. All rights
           reserved.
         </p>

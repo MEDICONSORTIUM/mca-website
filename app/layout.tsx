@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
-import GoogleReCaptchaProvider from "@/components/providers/ReCaptchaProvider";
 import ReCaptchaProvider from "@/components/providers/ReCaptchaProvider";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -15,13 +14,13 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children,}: Readonly<{ children: React.ReactNode; }>) {
-  return(<html lang="en"
-     className={'${geistSans.variable} ${geistMono.variable} h-full antialiased'}>
-     <body>
-     <ReCaptchaProvider>
-        <NavBar />
-        {children}
-        <Footer />
+  return (
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <body>
+        <ReCaptchaProvider>
+          <NavBar />
+          {children}
+          <Footer />
         </ReCaptchaProvider>
       </body>
     </html>

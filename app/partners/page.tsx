@@ -15,23 +15,23 @@ export default function PartnersPage() {
     <main className="bg-white text-black">
       <PageHeroBanner title="Our Partners" />
 
-      <section className="flex flex-col gap-8 p-8 md:flex-row">
+      <section className="flex flex-col gap-8 px-6 py-10 sm:px-8 sm:py-12 md:flex-row">
         <div>
-          <h2 className="text-2xl font-bold">Meet our Partners</h2>
+          <h2 className="text-xl font-bold sm:text-2xl">Meet our Partners</h2>
           <p className="mt-2 text-gray-600">We are not doing this alone.</p>
           <a href="https://tuksnovation.co.za/portfolio/medical-consortium-of-africa/" className="mt-4 inline-block text-blue-600">Read more →</a>
         </div>
-        <div className="h-64 flex-1 bg-gray-200" />
+        <div className="h-48 flex-1 bg-gray-200 sm:h-64" />
       </section>
 
       <section className="overflow-hidden py-12">
-        <div className="scroll-row flex w-max items-center gap-16">
+        <div className="scroll-row flex w-max items-center gap-10 sm:gap-16">
           {repeatedLogos.map((logo, i) => (
             <img
               key={i}
               src={logo.src}
               alt={logo.name}
-              className="h-20 w-auto object-contain"
+              className="h-14 w-auto object-contain sm:h-20"
             />
           ))}
         </div>
