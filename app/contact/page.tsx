@@ -18,7 +18,7 @@ export default function ContactPage() {
       <PageHeroBanner title="Contact Us" />
 
       {/* Contact section */}
-      <section className="mx-auto grid max-w-6xl gap-12 bg-white px-4 py-16 md:grid-cols-2">
+      <section className="mx-auto grid max-w-6xl gap-10 bg-white px-6 py-12 sm:px-8 sm:py-16 md:grid-cols-2 md:gap-12">
         
         {/* Contact form */}
         <div>

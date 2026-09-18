@@ -18,7 +18,7 @@ export default function HeroSection() {
       />
 
       {/* Hero Content */}
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-24 text-white sm:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-16 text-white sm:px-8 sm:py-24">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
           Medical Consortium of Africa
         </h1>
