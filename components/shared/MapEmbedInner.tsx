@@ -70,8 +70,6 @@ export default function MapEmbedInner({
         // Set linkToGoogleMaps={false} if the designer doesn't want this.
         <a
           href={`https://www.google.com/maps?q=${latitude},${longitude}`}
-          target="_blank"
-          rel="noopener noreferrer"
           className="absolute bottom-2 right-2 z-[1000] rounded bg-white px-2.5 py-1.5 text-xs font-semibold text-[#C85A1A] shadow-md"
         >
           Open in Google Maps ↗
