@@ -61,13 +61,9 @@ export default function NavBar() {
 
           {/* EOHA - INTERNAL MCA PAGE */}
           <li>
-            <Link
-              href="/eoha"
-              className={`inline-flex items-center justify-center rounded-md bg-mca-orange px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95 ${
-                pathname.startsWith("/eoha")
-                  ? "ring-2 ring-mca-orange/40"
-                  : ""
-              }`}
+            <a
+              href="https://eoha.co.za/"
+              className="inline-flex items-center justify-center rounded-md bg-mca-orange px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95"
             >
               Access EOHA
             </Link>
@@ -163,8 +159,8 @@ export default function NavBar() {
             </li>
 
             <li className="mt-2">
-              <Link
-                href="/intelligence-health-infrastructure"
+              <a
+                href="https://eoha.co.za/"
                 onClick={() => setOpen(false)}
                 className="block rounded-md bg-mca-orange px-3 py-2 text-center font-semibold text-white transition hover:brightness-95"
               >
