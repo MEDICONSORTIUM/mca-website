@@ -53,8 +53,6 @@ export default function ContactPage() {
               <span className="mt-1.5 h-1.5 w-1 flex-shrink-0 rounded-full bg-[#C85A1A]" />
               <a
                 href="https://www.linkedin.com/company/medical-consortium-of-africa-mca"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="transition-colors hover:text-[#C85A1A]"
               >
                 LinkedIn
