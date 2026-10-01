@@ -123,13 +123,13 @@ export default function ContactForm() {
           Get in Touch
         </span>
       </div>
-      <h2 className="text-3xl font-bold text-[#2C2C2C]">
+      <h2 className="text-3xl font-bold text-mca-charcoal">
         Reach out to the consortium
       </h2>
 
       {status === "success" ? (
         <div className="mt-8 rounded-lg bg-[#F5F5F5] p-8 text-center">
-          <p className="font-semibold text-[#2C2C2C]">
+          <p className="font-semibold text-mca-charcoal">
             Thanks — your message has been sent. We&apos;ll be in touch soon.
           </p>
         </div>
@@ -137,7 +137,7 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
-              <label htmlFor="fullName" className="block text-sm font-medium text-[#2C2C2C]">
+              <label htmlFor="fullName" className="block text-sm font-medium text-mca-charcoal">
                 Full Name *
               </label>
               <input
@@ -158,7 +158,7 @@ export default function ContactForm() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-[#2C2C2C]">
+              <label htmlFor="email" className="block text-sm font-medium text-mca-charcoal">
                 Email Address *
               </label>
               <input
@@ -180,7 +180,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="organisation" className="block text-sm font-medium text-[#2C2C2C]">
+            <label htmlFor="organisation" className="block text-sm font-medium text-mca-charcoal">
               Organisation
             </label>
             <input
@@ -194,14 +194,14 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="subject" className="block text-sm font-medium text-[#2C2C2C]">
+            <label htmlFor="subject" className="block text-sm font-medium text-mca-charcoal">
               Subject *
             </label>
             <select
               id="subject"
               value={form.subject}
               onChange={(e) => update("subject", e.target.value as FormState["subject"])}
-              className="mt-1 w-full rounded-md border border-[#6B7280]/40 px-3 py-2 text-[#2C2C2C] focus:border-[#C85A1A] focus:outline-none focus:ring-1 focus:ring-[#C85A1A]"
+              className="mt-1 w-full rounded-md border border-[#6B7280]/40 px-3 py-2 text-mca-charcoal focus:border-[#C85A1A] focus:outline-none focus:ring-1 focus:ring-[#C85A1A]"
               aria-invalid={!!errors.subject}
               aria-describedby={errors.subject ? "subject-error" : undefined}
             >
@@ -222,7 +222,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-[#2C2C2C]">
+            <label htmlFor="message" className="block text-sm font-medium text-mca-charcoal">
               Message *
             </label>
             <textarea
