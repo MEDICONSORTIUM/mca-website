@@ -5,6 +5,9 @@ const logos = [
   { name: "TuksNovation", src: "/TuksNovation-Logo.png" },
   { name: "TuksNovation", src: "/up-logo.jpg" },
   { name: "TuksNovation", src: "/nrf-logo.png" },
+  { name: "UP-ISMC", src: "/ISMC-logo.png" },
+  { name: "Sedfa", src: "/sedfa-logo.png" },
+
   // ...
 ];
 

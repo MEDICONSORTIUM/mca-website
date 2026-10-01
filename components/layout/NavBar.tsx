@@ -10,6 +10,7 @@ const links = [
   { href: "/about", label: "About" },
   { href: "/partners", label: "Partners" },
   { href: "/contact", label: "Contact" },
+  { href: "/intelligence-health-infrastructure", label: "Access IHI" },
 ];
 
 export default function NavBar() {
@@ -19,6 +20,8 @@ export default function NavBar() {
   return (
     <header className="sticky top-0 z-50 border-b border-mca-steel/20 bg-mca-charcoal">
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4 sm:px-8">
+
+        {/* MCA Logo / Home */}
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/mca-logo.jpg"
@@ -27,14 +30,18 @@ export default function NavBar() {
             height={36}
             className="rounded-md"
           />
+
           <span className="text-base font-bold text-white sm:text-lg">
             Medical Consortium of Africa
           </span>
         </Link>
 
+        {/* Desktop Navigation */}
         <ul className="hidden items-center gap-x-6 text-sm lg:flex">
+
           {links.map((link) => {
             const active = pathname === link.href;
+
             return (
               <li key={link.href}>
                 <Link
@@ -51,16 +58,33 @@ export default function NavBar() {
               </li>
             );
           })}
+
+          {/* EOHA - INTERNAL MCA PAGE */}
           <li>
             <a
               href="https://eoha.co.za/"
               className="inline-flex items-center justify-center rounded-md bg-mca-orange px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95"
             >
-              Access the Platform
-            </a>
+              Access EOHA
+            </Link>
           </li>
+
+          <li>
+            <Link
+              href="/intelligence-health-infrastructure"
+              className={`inline-flex items-center justify-center rounded-md bg-mca-orange px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95 ${
+                pathname.startsWith("/eoha")
+                  ? "ring-2 ring-mca-orange/40"
+                  : ""
+              }`}
+            >
+              Access IHA
+            </Link>
+          </li>
+
         </ul>
 
+        {/* Mobile Menu Button */}
         <button
           type="button"
           onClick={() => setOpen((prev) => !prev)}
@@ -69,21 +93,42 @@ export default function NavBar() {
           aria-label={open ? "Close menu" : "Open menu"}
           className="flex h-10 w-10 items-center justify-center rounded-md text-white lg:hidden"
         >
-          <svg aria-hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-6 w-6">
+          <svg
+            aria-hidden
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            className="h-6 w-6"
+          >
             {open ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             )}
           </svg>
         </button>
       </nav>
 
+      {/* Mobile Navigation */}
       {open && (
-        <div id="mobile-nav-menu" className="border-t border-mca-steel/20 bg-mca-charcoal lg:hidden">
+        <div
+          id="mobile-nav-menu"
+          className="border-t border-mca-steel/20 bg-mca-charcoal lg:hidden"
+        >
           <ul className="flex flex-col gap-1 px-6 py-4 text-sm sm:px-8">
+
             {links.map((link) => {
               const active = pathname === link.href;
+
               return (
                 <li key={link.href}>
                   <Link
@@ -101,15 +146,28 @@ export default function NavBar() {
                 </li>
               );
             })}
+
+            {/* Mobile EOHA */}
+            <li className="mt-2">
+              <Link
+                href="/eoha"
+                onClick={() => setOpen(false)}
+                className="block rounded-md bg-mca-orange px-3 py-2 text-center font-semibold text-white transition hover:brightness-95"
+              >
+                Access EOHA
+              </Link>
+            </li>
+
             <li className="mt-2">
               <a
                 href="https://eoha.co.za/"
                 onClick={() => setOpen(false)}
                 className="block rounded-md bg-mca-orange px-3 py-2 text-center font-semibold text-white transition hover:brightness-95"
               >
-                Access the Platform
-              </a>
+                Access IHI
+              </Link>
             </li>
+
           </ul>
         </div>
       )}
