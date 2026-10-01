@@ -10,7 +10,7 @@ const links = [
   { href: "/about", label: "About" },
   { href: "/partners", label: "Partners" },
   { href: "/contact", label: "Contact" },
-  { href: "/intelligence-health-infrastructure", label: "Access IHI" },
+
 ];
 
 export default function NavBar() {
@@ -61,8 +61,8 @@ export default function NavBar() {
 
           {/* EOHA - INTERNAL MCA PAGE */}
           <li>
-            <a
-              href="https://eoha.co.za/"
+            <Link
+              href="/eoha"
               className="inline-flex items-center justify-center rounded-md bg-mca-orange px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95"
             >
               Access EOHA
@@ -78,7 +78,7 @@ export default function NavBar() {
                   : ""
               }`}
             >
-              Access IHA
+              Access IHI
             </Link>
           </li>
 
@@ -158,15 +158,7 @@ export default function NavBar() {
               </Link>
             </li>
 
-            <li className="mt-2">
-              <a
-                href="https://eoha.co.za/"
-                onClick={() => setOpen(false)}
-                className="block rounded-md bg-mca-orange px-3 py-2 text-center font-semibold text-white transition hover:brightness-95"
-              >
-                Access IHI
-              </Link>
-            </li>
+
 
           </ul>
         </div>
