@@ -4,7 +4,7 @@ interface PageHeroBannerProps {
 
 export default function PageHeroBanner({ title }: PageHeroBannerProps) {
   return (
-    <section className="relative bg-[#2C2C2C] py-16 sm:py-20 md:py-28">
+    <section className="relative bg-mca-charcoal py-16 sm:py-20 md:py-28">
 
       {/*Orange accent*/}
       <div className="absolute left-0 top-0 h-1 w-full bg-[#C85A1A]"/>

@@ -34,6 +34,12 @@ export default function HeroSection() {
           >
             Access the EOHA Platform
           </a>
+          <a
+            href="/intelligence-health-infrastructure"
+            className="inline-flex items-center justify-center bg-mca-orange px-7 py-3.5 text-base font-semibold text-white transition hover:brightness-95"
+          >
+            Access the IHI
+          </a>
 
           <a
             href="/about"
