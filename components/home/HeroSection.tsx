@@ -30,8 +30,6 @@ export default function HeroSection() {
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
           <a
             href="https://eoha.co.za/"
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center justify-center bg-mca-orange px-7 py-3.5 text-base font-semibold text-white transition hover:brightness-95"
           >
             Access the EOHA Platform
