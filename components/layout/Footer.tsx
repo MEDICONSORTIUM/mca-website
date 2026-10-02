@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -57,30 +57,64 @@ export default function Footer() {
 
         {/* Contact and social */}
         <div className="text-sm">
-          <p className="mb-2 font-semibold text-white">
-            Contact
-          </p>
+          <p className="mb-3 font-semibold text-white">Contact</p>
 
-          <p className="mt-1 text-mca-steel">
-            Info@MedicalConsortiumOfAfrica.co.za
-          </p>
+          <ul className="space-y-3 text-mca-steel">
+            <li className="flex items-start gap-3">
+              <FaPhoneAlt
+                size={14}
+                aria-hidden="true"
+                className="mt-1 shrink-0 text-mca-orange"
+              />
+              <a
+                href="tel:+27124203003"
+                className="transition-colors hover:text-mca-orange"
+              >
+                +27 12 420 3003
+              </a>
+            </li>
 
-          <p className="text-mca-steel">
-            Medical Consortium of Africa<br />
-            TUKSNOVATION<br />
-            Room 14-4, Humanities Building<br />
-            University of Pretoria<br />
-            Hatfield, 0028<br />
-            Pretoria, South Africa
-          </p>
-          {/* HOME-FTR-02 — LinkedIn placeholder */}
-          <div className="mt-4 flex gap-3">
-            <span
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-mca-steel/40 text-mca-steel transition-colors hover:border-mca-orange hover:bg-mca-orange hover:text-white"
-              aria-hidden="true"
+            <li className="flex items-start gap-3">
+              <FaEnvelope
+                size={14}
+                aria-hidden="true"
+                className="mt-1 shrink-0 text-mca-orange"
+              />
+              <a
+                href="mailto:Info@MedicalConsortiumOfAfrica.co.za"
+                className="break-all transition-colors hover:text-mca-orange"
+              >
+                Info@MedicalConsortiumOfAfrica.co.za
+              </a>
+            </li>
+
+            <li className="flex items-start gap-3">
+              <FaMapMarkerAlt
+                size={14}
+                aria-hidden="true"
+                className="mt-1 shrink-0 text-mca-orange"
+              />
+              <address className="not-italic leading-6">
+                Medical Consortium of Africa<br />
+                TUKSNOVATION<br />
+                Room 14-4, Humanities Building<br />
+                University of Pretoria<br />
+                Hatfield, 0002<br />
+                Pretoria, South Africa
+              </address>
+            </li>
+          </ul>
+
+          {/* HOME-FTR-02: LinkedIn */}
+          <div className="mt-5 flex gap-3">
+            <a
+              href="https://www.linkedin.com/company/medical-consortium-of-africa-mca"
+              target="_blank"
+              aria-label="Medical Consortium of Africa on LinkedIn (opens in a new tab)"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-mca-steel/40 text-mca-steel transition-colors hover:border-mca-orange hover:bg-mca-orange hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mca-orange"
             >
-              <FaLinkedinIn size={16} />
-            </span>
+              <FaLinkedinIn size={16} aria-hidden="true" />
+            </a>
           </div>
         </div>
       </div>

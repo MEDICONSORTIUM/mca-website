@@ -41,7 +41,11 @@ export default function ContactPage() {
             
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#C85A1A]" />
-              Humanities Building, Office 14-4, University of Pretoria, 5 Lynnwood Rd, Pretoria, 0040
+                TUKS-NOVATION
+                Room 14-4, Humanities Building
+                University of Pretoria
+                Hatfield, 0002
+                Pretoria, South Africa
             </li>
 
             <li className="flex items-start gap-2">
@@ -55,7 +59,7 @@ export default function ContactPage() {
                 href="https://www.linkedin.com/company/medical-consortium-of-africa-mca"
                 className="transition-colors hover:text-[#C85A1A]"
               >
-                LinkedIn
+                LinkedIn : Medical Consortium of Africa
               </a>
             </li>
 
