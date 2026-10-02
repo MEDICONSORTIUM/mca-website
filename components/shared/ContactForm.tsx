@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
-import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { useState, type FormEvent } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 // Subject dropdown options — README §Contact Page Contact Form fields
 const CONTACT_SUBJECTS = [
@@ -64,19 +64,14 @@ function validate(form: FormState): FormErrors {
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function ContactForm() {
-  const [form, setForm] = useState<FormState>(EMPTY_FORM);
+export default function ContactForm({ initialProduct }: { initialProduct?: string }) {
+  const [form, setForm] = useState<FormState>(() => ({
+    ...EMPTY_FORM,
+    message: initialProduct ? `I would like to enquire about ${initialProduct}` : "",
+  }));
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const { executeRecaptcha } = useGoogleReCaptcha();
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const product = params.get("product");
-    if (product) {
-      setForm((prev) => ({ ...prev, message: `I would like to enquire about ${product}` }));
-    }
-  }, []);
 
   function update<K extends keyof FormState>(field: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [field]: value }));

@@ -11,7 +11,14 @@ export const CONTACT_SUBJECTS = [
   "Technical Support",
 ] as const;
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const { product } = await searchParams;
+  const initialProduct = typeof product === "string" ? product : undefined;
+
   return (
     <main className="bg-white">
       {/* Page hero */}
@@ -22,7 +29,7 @@ export default function ContactPage() {
         
         {/* Contact form */}
         <div>
-          <ContactForm />
+          <ContactForm initialProduct={initialProduct} />
         </div>
 
         {/* Map and contact information */}
