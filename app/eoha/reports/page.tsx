@@ -143,9 +143,9 @@ export default function MalariaReportsPage() {
         });
         if (result.errors.length) throw new Error(result.errors[0].message);
 
-        const parsed = result.data
-          .filter((row) => row.Month && row.WardLabel)
-          .map((row) => {
+        const parsed: ReportRow[] = result.data
+          .filter((row: SourceRow) => Boolean(row.Month) && Boolean(row.WardLabel))
+          .map((row: SourceRow) => {
             const risk = calculateRisk(row);
             return {
               month: String(row.Month),
