@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import NavBar from "@/components/layout/NavBar";
-import Footer from "@/components/layout/Footer";
+import SiteChrome from "@/components/layout/SiteChrome";
 import "./globals.css";
 import ReCaptchaProvider from "@/components/providers/ReCaptchaProvider";
 
@@ -18,9 +17,9 @@ export default function RootLayout({ children,}: Readonly<{ children: React.Reac
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body>
         <ReCaptchaProvider>
-          <NavBar />
+          <SiteChrome section="header" />
           {children}
-          <Footer />
+          <SiteChrome section="footer" />
         </ReCaptchaProvider>
       </body>
     </html>
