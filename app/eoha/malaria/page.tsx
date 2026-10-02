@@ -28,6 +28,7 @@ const HOME: MapView = { center: [-29, 25.5], zoom: 5 };
 const MALARIA_LINKS = [
   { href: "/eoha/malaria", label: "Dashboard" },
   { href: "/eoha/forecasting", label: "Forecasting" },
+  { href: "/eoha/resource-center", label: "Resource Center" },
   { href: "/eoha/reports", label: "Reports" },
 ];
 
