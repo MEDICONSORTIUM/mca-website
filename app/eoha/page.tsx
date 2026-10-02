@@ -181,22 +181,22 @@ export default function EOHAHomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-mca-orange/30 via-transparent to-mca-charcoal/70" />
 
         {/* Hero content */}
-        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-80px)] max-w-7xl flex-col justify-center px-6 py-24 sm:px-8 lg:px-12">
+        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-80px)] max-w-7xl flex-col justify-center px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
 
           <div className="max-w-4xl">
 
-            <span className="mb-6 inline-block rounded-full border border-mca-orange/60 bg-mca-orange/20 px-5 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-white">
+            <span className="mb-6 inline-block rounded-full border border-mca-orange/60 bg-mca-orange/20 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white sm:px-5 sm:py-2 sm:text-sm sm:tracking-[0.2em]">
               Medical Consortium of Africa
             </span>
 
-            <h1 className="text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl">
+            <h1 className="text-4xl font-bold leading-tight text-white min-[380px]:text-5xl sm:text-6xl lg:text-7xl">
               Earth Observation
               <span className="block text-mca-orange">
                 Health Analytics
               </span>
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/85 sm:text-xl">
+            <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 sm:text-xl sm:leading-8">
               A first-of-its-kind platform using real-time Earth observation
               and health data to deliver actionable insights on Malaria and
               NCDs across Africa.
@@ -221,7 +221,7 @@ export default function EOHAHomePage() {
           </div>
 
           {/* Statistics */}
-          <div className="mt-16 grid max-w-3xl grid-cols-1 border-t border-white/20 pt-8 sm:grid-cols-3">
+          <div className="mt-12 grid max-w-3xl grid-cols-1 border-t border-white/20 pt-6 sm:mt-16 sm:grid-cols-3 sm:pt-8">
 
             <div className="py-4 sm:border-r sm:border-white/20 sm:pr-8">
               <div className="text-4xl font-bold text-white">
@@ -341,9 +341,10 @@ export default function EOHAHomePage() {
 
           <div className="overflow-hidden rounded-2xl shadow-xl">
             <img
+                loading="lazy"
               src="/images/hartbeesdam_oli2_20220810_lrg.jpg"
               alt="Satellite view used in malaria risk modelling"
-              className="h-[420px] w-full object-cover transition duration-500 hover:scale-105"
+              className="h-64 w-full object-cover transition duration-500 hover:scale-105 sm:h-80 lg:h-[420px]"
             />
           </div>
 
@@ -359,9 +360,10 @@ export default function EOHAHomePage() {
 
           <div className="order-2 overflow-hidden rounded-2xl shadow-xl lg:order-1">
             <img
+                loading="lazy"
               src="/images/image-01-ncd-wheel-hie_hires.jpg"
               alt="NCD risk wheel"
-              className="h-[420px] w-full object-cover transition duration-500 hover:scale-105"
+              className="h-64 w-full object-cover transition duration-500 hover:scale-105 sm:h-80 lg:h-[420px]"
             />
           </div>
 
@@ -478,6 +480,7 @@ export default function EOHAHomePage() {
 
             <div className="group overflow-hidden rounded-xl">
               <img
+                loading="lazy"
                 src="/images/hartbeesdam_oli2_20220810_lrg.jpg"
                 alt="Dam satellite view"
                 className="h-72 w-full object-cover transition duration-500 group-hover:scale-105"
@@ -486,6 +489,7 @@ export default function EOHAHomePage() {
 
             <div className="group overflow-hidden rounded-xl">
               <img
+                loading="lazy"
                 src="/images/iss072e807123_lrg.jpg"
                 alt="International Space Station imagery"
                 className="h-72 w-full object-cover transition duration-500 group-hover:scale-105"
@@ -494,6 +498,7 @@ export default function EOHAHomePage() {
 
             <div className="group overflow-hidden rounded-xl">
               <img
+                loading="lazy"
                 src="/images/northatlantic_tmo_2017197_lrg.jpg"
                 alt="North Atlantic satellite view"
                 className="h-72 w-full object-cover transition duration-500 group-hover:scale-105"
@@ -533,9 +538,10 @@ export default function EOHAHomePage() {
 
           <div className="overflow-hidden rounded-2xl shadow-xl">
             <img
+                loading="lazy"
               src="/images/PIA04965.jpg"
               alt="Africa satellite view"
-              className="h-[420px] w-full object-cover transition duration-500 hover:scale-105"
+              className="h-64 w-full object-cover transition duration-500 hover:scale-105 sm:h-80 lg:h-[420px]"
             />
           </div>
 
@@ -557,6 +563,7 @@ export default function EOHAHomePage() {
 
             <div className="flex h-24 items-center justify-center rounded-lg bg-white p-4 shadow-sm">
               <img
+                loading="lazy"
                 src="/images/Science-Technology_-and-Innovation-1024x382.jpg"
                 alt="Department of Science, Technology and Innovation"
                 className="max-h-16 max-w-full object-contain"
@@ -565,6 +572,7 @@ export default function EOHAHomePage() {
 
             <div className="flex h-24 items-center justify-center rounded-lg bg-white p-4 shadow-sm">
               <img
+                loading="lazy"
                 src="/images/SANSA_Logo_small-1-1.jpg"
                 alt="SANSA"
                 className="max-h-16 max-w-full object-contain"
@@ -573,6 +581,7 @@ export default function EOHAHomePage() {
 
             <div className="flex h-24 items-center justify-center rounded-lg bg-white p-4 shadow-sm">
               <img
+                loading="lazy"
                 src="/images/Partner_0010_Layer-1.jpg"
                 alt="Partner"
                 className="max-h-16 max-w-full object-contain"
@@ -581,6 +590,7 @@ export default function EOHAHomePage() {
 
             <div className="flex h-24 items-center justify-center rounded-lg bg-white p-4 shadow-sm">
               <img
+                loading="lazy"
                 src="/images/TuksNovation-logo-2-menu-1.png"
                 alt="TuksNovation"
                 className="max-h-16 max-w-full object-contain"
@@ -589,6 +599,7 @@ export default function EOHAHomePage() {
 
             <div className="flex h-24 items-center justify-center rounded-lg bg-white p-4 shadow-sm">
               <img
+                loading="lazy"
                 src="/images/uct-research-support-hub-navigator-funder-nrf_0.png"
                 alt="National Research Foundation"
                 className="max-h-16 max-w-full object-contain"

@@ -245,7 +245,7 @@ export default function MalariaDashboardPage() {
     <main className="min-h-screen bg-mca-offwhite text-mca-charcoal">
       <ModuleHeader title="Malaria Guard" links={MALARIA_LINKS} activeHref="/eoha/malaria" />
 
-      <div className="mx-auto grid max-w-7xl gap-6 p-6 lg:grid-cols-[260px_minmax(0,1fr)_280px]">
+      <div className="mx-auto grid max-w-7xl gap-6 p-4 sm:p-6 lg:grid-cols-[260px_minmax(0,1fr)_280px]">
         <aside className="space-y-5">
           <section className={card}>
             <div className="mb-2 flex items-center justify-between gap-3">
@@ -376,7 +376,7 @@ export default function MalariaDashboardPage() {
               </span>
             </div>
 
-            <div className="relative isolate h-[420px] sm:h-[520px]">
+            <div className="relative isolate h-[340px] sm:h-[460px] lg:h-[520px]">
               {loadError ? (
                 <MapMessage text={`Could not load the ward data. ${loadError}`} />
               ) : !ready ? (

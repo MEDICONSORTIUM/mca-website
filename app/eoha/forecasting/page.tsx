@@ -1,7 +1,14 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import ModuleHeader from "@/components/eoha/ModuleHeader";
+
+const MALARIA_LINKS = [
+  { href: "/eoha/malaria", label: "Dashboard" },
+  { href: "/eoha/forecasting", label: "Forecasting" },
+  { href: "/eoha/resource-center", label: "Resource Center" },
+  { href: "/eoha/reports", label: "Reports" },
+];
 
 type ForecastPoint = {
   day: string;
@@ -100,61 +107,11 @@ export default function ForecastingPage() {
   return (
     <main className="min-h-screen bg-mca-offwhite text-mca-charcoal">
 
-      {/* MALARIA GUARD NAVIGATION */}
-      <header className="border-b border-mca-steel/20 bg-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-
-          <div className="rounded-full bg-mca-charcoal px-5 py-2">
-            <h1 className="text-lg font-bold text-white">
-              Malaria Guard
-            </h1>
-          </div>
-
-          <nav className="hidden items-center gap-6 md:flex">
-
-            <Link
-              href="/eoha/malaria"
-              className="text-sm font-medium text-mca-steel hover:text-mca-orange"
-            >
-              Dashboard
-            </Link>
-
-            <Link
-              href="/eoha/forecasting"
-              className="border-b-2 border-mca-orange pb-1 text-sm font-semibold"
-            >
-              Forecasting
-            </Link>
-
-            <Link
-              href="/eoha/resource-center"
-              className="text-sm font-medium text-mca-steel hover:text-mca-orange"
-            >
-              Resource Center
-            </Link>
-
-            <Link
-              href="/eoha/reports"
-              className="text-sm font-medium text-mca-steel hover:text-mca-orange"
-            >
-              Reports
-            </Link>
-
-          </nav>
-
-          <Link
-            href="/eoha"
-            className="rounded-full border border-mca-steel/30 px-4 py-2 text-sm font-semibold hover:border-mca-orange hover:text-mca-orange"
-          >
-            EOHA
-          </Link>
-
-        </div>
-      </header>
+      <ModuleHeader title="Malaria Guard" links={MALARIA_LINKS} activeHref="/eoha/forecasting" />
 
 
       {/* DASHBOARD */}
-      <div className="mx-auto grid max-w-7xl gap-6 p-6 lg:grid-cols-[250px_1fr_270px]">
+      <div className="mx-auto grid max-w-7xl gap-6 p-4 sm:p-6 lg:grid-cols-[250px_minmax(0,1fr)_270px]">
 
 
         {/* LEFT SIDEBAR */}

@@ -167,7 +167,7 @@ export default function NcdPredictionPage() {
     <main className="min-h-screen bg-mca-offwhite text-mca-charcoal">
       <ModuleHeader title="NCD Risk Prediction" />
 
-      <div className="mx-auto grid max-w-7xl gap-6 p-6 lg:grid-cols-[260px_minmax(0,1fr)_280px]">
+      <div className="mx-auto grid max-w-7xl gap-6 p-4 sm:p-6 lg:grid-cols-[260px_minmax(0,1fr)_280px]">
         <aside className="space-y-5">
           <section className={card}>
             <div className="mb-2 flex items-center justify-between gap-3">
@@ -265,7 +265,7 @@ export default function NcdPredictionPage() {
             </span>
           </div>
 
-          <div className="relative isolate h-[420px] sm:h-[560px]">
+          <div className="relative isolate h-[340px] sm:h-[460px] lg:h-[560px]">
             <RiskMap
               points={points}
               selectedId={countryName || null}
