@@ -5,6 +5,7 @@ export type RiskLevel = "High" | "Moderate" | "Low";
 
 export type WardRecord = {
   month: string; // e.g. "Jan 2025"
+  wardId: string; // WardID, stable across months
   ward: string; // WardLabel
   municipality: string; // Municipali (raw, e.g. "Polokwane Local Municipality")
   province: string;
@@ -19,20 +20,57 @@ export type WardRecord = {
 };
 
 // The CSV must be reachable by the browser, so it lives under /public.
-export const MALARIA_DATA_URL = "/eoha/data/Limpopo_Risk_Jan25_Jan26_Safe.csv";
+export const MALARIA_DATA_URL = "/data/Limpopo_Risk_Jan25_Jan26_Safe.csv";
 
 /* ---------------------------- Risk logic ---------------------------- */
 
-export function calculateRisk(w: Pick<WardRecord, "soilMoisture" | "lst" | "ndwi" | "populationDensity">): number {
-  let score = 0;
+type RiskInputs = Pick<WardRecord, "soilMoisture" | "lst" | "ndwi" | "populationDensity">;
 
-  if (w.soilMoisture > 0.35) score += 40;
-  else if (w.soilMoisture > 0.25) score += 20;
+export type RiskFactor = {
+  label: string;
+  display: string;
+  fill: number;
+  points: number;
+  maxPoints: number;
+};
 
-  if (w.lst >= 25 && w.lst <= 30) score += 30;
-  if (w.ndwi > -0.1) score += 20;
-  if (w.populationDensity > 300) score += 10;
+export function riskBreakdown(w: RiskInputs): RiskFactor[] {
+  const soilPoints = w.soilMoisture > 0.35 ? 40 : w.soilMoisture > 0.25 ? 20 : 0;
 
+  return [
+    {
+      label: "Soil moisture",
+      display: `${(w.soilMoisture * 100).toFixed(0)}%`,
+      fill: w.soilMoisture * 100,
+      points: soilPoints,
+      maxPoints: 40,
+    },
+    {
+      label: "Land surface temp",
+      display: `${w.lst.toFixed(1)}°C`,
+      fill: (w.lst / 50) * 100,
+      points: w.lst >= 25 && w.lst <= 30 ? 30 : 0,
+      maxPoints: 30,
+    },
+    {
+      label: "Water index (NDWI)",
+      display: w.ndwi.toFixed(2),
+      fill: ((w.ndwi + 1) / 2) * 100,
+      points: w.ndwi > -0.1 ? 20 : 0,
+      maxPoints: 20,
+    },
+    {
+      label: "Population density",
+      display: `${Math.round(w.populationDensity).toLocaleString()}/km²`,
+      fill: (w.populationDensity / 1000) * 100,
+      points: w.populationDensity > 300 ? 10 : 0,
+      maxPoints: 10,
+    },
+  ];
+}
+
+export function calculateRisk(w: RiskInputs): number {
+  const score = riskBreakdown(w).reduce((total, factor) => total + factor.points, 0);
   return Math.min(score, 100);
 }
 
@@ -49,6 +87,13 @@ export const RISK_COLORS = {
   empty: "#cbd5e1",
   average: "#5c6c85",
 } as const;
+
+export function riskColor(score: number): string {
+  const level = riskLevel(score);
+  if (level === "High") return RISK_COLORS.high;
+  if (level === "Moderate") return RISK_COLORS.moderate;
+  return RISK_COLORS.low;
+}
 
 export function formatMunicipalityName(name: string): string {
   return name.replace(/ Local Municipality$/i, "");
@@ -124,6 +169,7 @@ function toWards(rows: Record<string, string>[]): WardRecord[] {
 
     wards.push({
       month: r.Month,
+      wardId: r.WardID || `${r.Municipali}-${r.WardLabel}`,
       ward: r.WardLabel,
       municipality: r.Municipali || "—",
       province: r.Province || "Limpopo",
