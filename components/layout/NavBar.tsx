@@ -10,7 +10,11 @@ const links = [
   { href: "/about", label: "About" },
   { href: "/partners", label: "Partners" },
   { href: "/contact", label: "Contact" },
+];
 
+const platforms = [
+  { href: "/eoha", label: "Access EOHA" },
+  { href: "/intelligence-health-infrastructure", label: "Access IHI" },
 ];
 
 export default function NavBar() {
@@ -19,26 +23,22 @@ export default function NavBar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-mca-steel/20 bg-mca-charcoal">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4 sm:px-8">
-
-        {/* MCA Logo / Home */}
-        <Link href="/" className="flex items-center gap-3">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-8 sm:py-4">
+        <Link href="/" className="flex min-w-0 items-center gap-3">
           <Image
             src="/mca-logo.jpg"
             alt="Medical Consortium of Africa logo"
             width={36}
             height={36}
-            className="rounded-md"
+            className="shrink-0 rounded-md"
           />
 
-          <span className="text-base font-bold text-white sm:text-lg">
+          <span className="text-sm font-bold leading-tight text-white sm:text-lg">
             Medical Consortium of Africa
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <ul className="hidden items-center gap-x-6 text-sm lg:flex">
-
+        <ul className="hidden items-center gap-x-6 text-sm xl:flex">
           {links.map((link) => {
             const active = pathname === link.href;
 
@@ -59,39 +59,27 @@ export default function NavBar() {
             );
           })}
 
-          {/* EOHA - INTERNAL MCA PAGE */}
-          <li>
-            <Link
-              href="/eoha"
-              className="inline-flex items-center justify-center rounded-md bg-mca-orange px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95"
-            >
-              Access EOHA
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="/intelligence-health-infrastructure"
-              className={`inline-flex items-center justify-center rounded-md bg-mca-orange px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95 ${
-                pathname.startsWith("/eoha")
-                  ? "ring-2 ring-mca-orange/40"
-                  : ""
-              }`}
-            >
-              Access IHI
-            </Link>
-          </li>
-
+          {platforms.map((platform) => (
+            <li key={platform.href}>
+              <Link
+                href={platform.href}
+                className={`inline-flex items-center justify-center whitespace-nowrap rounded-md bg-mca-orange px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95 ${
+                  pathname.startsWith(platform.href) ? "ring-2 ring-white/40" : ""
+                }`}
+              >
+                {platform.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
-        {/* Mobile Menu Button */}
         <button
           type="button"
           onClick={() => setOpen((prev) => !prev)}
           aria-expanded={open}
           aria-controls="mobile-nav-menu"
           aria-label={open ? "Close menu" : "Open menu"}
-          className="flex h-10 w-10 items-center justify-center rounded-md text-white lg:hidden"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-white hover:bg-white/10 xl:hidden"
         >
           <svg
             aria-hidden
@@ -102,65 +90,53 @@ export default function NavBar() {
             className="h-6 w-6"
           >
             {open ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
       </nav>
 
-      {/* Mobile Navigation */}
       {open && (
-        <div
-          id="mobile-nav-menu"
-          className="border-t border-mca-steel/20 bg-mca-charcoal lg:hidden"
-        >
-          <ul className="flex flex-col gap-1 px-6 py-4 text-sm sm:px-8">
+        <div id="mobile-nav-menu" className="border-t border-mca-steel/20 bg-mca-charcoal xl:hidden">
+          <div className="mx-auto max-w-7xl px-4 py-4 sm:px-8">
+            <ul className="flex flex-col gap-1 text-sm">
+              {links.map((link) => {
+                const active = pathname === link.href;
 
-            {links.map((link) => {
-              const active = pathname === link.href;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      aria-current={active ? "page" : undefined}
+                      className={`block rounded-md px-3 py-2.5 transition-colors ${
+                        active
+                          ? "bg-white/10 font-semibold text-white"
+                          : "font-medium text-white/70 hover:bg-white/5 hover:text-white"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
 
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    aria-current={active ? "page" : undefined}
-                    className={`block rounded-md px-3 py-2 transition-colors ${
-                      active
-                        ? "bg-white/10 font-semibold text-white"
-                        : "font-medium text-white/70 hover:bg-white/5 hover:text-white"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              );
-            })}
-
-            {/* Mobile EOHA */}
-            <li className="mt-2">
-              <Link
-                href="/eoha"
-                onClick={() => setOpen(false)}
-                className="block rounded-md bg-mca-orange px-3 py-2 text-center font-semibold text-white transition hover:brightness-95"
-              >
-                Access EOHA
-              </Link>
-            </li>
-
-
-
-          </ul>
+            <div className="mt-4 grid gap-2 sm:grid-cols-2">
+              {platforms.map((platform) => (
+                <Link
+                  key={platform.href}
+                  href={platform.href}
+                  onClick={() => setOpen(false)}
+                  className="block rounded-md bg-mca-orange px-3 py-2.5 text-center text-sm font-semibold text-white transition hover:brightness-95"
+                >
+                  {platform.label}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </header>

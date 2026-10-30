@@ -63,13 +63,13 @@ export default function AccessIHIPage() {
   return (
     <main className="bg-mca-offwhite min-h-screen">
       {/* Page heading */}
-      <section className="bg-mca-charcoal py-20 text-white">
-        <div className="mx-auto max-w-6xl px-6 text-center">
-          <h1 className="text-4xl font-bold sm:text-5xl">
+      <section className="bg-mca-charcoal py-14 text-white sm:py-20">
+        <div className="mx-auto max-w-6xl px-5 text-center sm:px-8">
+          <h1 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
             Intelligence Health Infrastructure (IHI)
           </h1>
 
-          <p className="mx-auto mt-5 max-w-3xl text-lg text-gray-200">
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-gray-200 sm:text-lg">
             Intelligent health infrastructure focuses on the intelligent rehabilitation care field, leveraging technological innovation to empower the silver economy ecosystem, enhance the new quality productivity of the industry, and drive the upgrading of the entire industrial chain of institutional rehabilitation care and home-based elderly care. Its full-stack products, such as Intelli-
            gent Portable Bathing Machine, Thoughtful Care System for Flexi- ble Home Care, intelligent companionship robots, intelligent wash and care
            beds, intelligent urination and defecation care robots, intelligent electric
@@ -79,9 +79,9 @@ export default function AccessIHIPage() {
       </section>
 
       {/* Products */}
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-6 sm:px-8">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="py-12 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-8">
+          <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
             {products.map((product) => (
               <article
                 key={product.name}

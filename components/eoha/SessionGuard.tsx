@@ -1,22 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 const IDLE_LIMIT_MS = 15 * 60 * 1000; // keep in sync with SESSION_MAX_AGE
 const TAB_FLAG = "mca_tab_auth";
 
+const subscribe = () => () => {};
+const readTabFlag = () => sessionStorage.getItem(TAB_FLAG) !== null;
+const readTabFlagOnServer = () => false;
+
 export default function SessionGuard({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const isLogin = pathname === "/eoha/login";
-  const [ready, setReady] = useState(isLogin);
+  const hasTabFlag = useSyncExternalStore(subscribe, readTabFlag, readTabFlagOnServer);
 
   useEffect(() => {
-    if (isLogin) {
-      setReady(true);
-      return;
-    }
+    if (isLogin) return;
 
     async function signOut() {
       sessionStorage.removeItem(TAB_FLAG);
@@ -29,7 +30,6 @@ export default function SessionGuard({ children }: { children: React.ReactNode }
       signOut();
       return;
     }
-    setReady(true);
 
     // Auto sign-out after 15 minutes without activity
     let timer = setTimeout(signOut, IDLE_LIMIT_MS);
@@ -46,5 +46,5 @@ export default function SessionGuard({ children }: { children: React.ReactNode }
     };
   }, [isLogin, pathname, router]);
 
-  return ready ? <>{children}</> : null;
+  return isLogin || hasTabFlag ? <>{children}</> : null;
 }
